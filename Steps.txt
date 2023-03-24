@@ -5,3 +5,4 @@ add this repository to STS Git Repository
 commit it local
 create a repository in github
 push to github (by provideing github repository URL)
+----
