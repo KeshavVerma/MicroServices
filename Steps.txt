@@ -1,0 +1,7 @@
+Create Two micreoservices with intercomunication
+create one server-registry spring boot project
+create local repository using tortoisegit
+add this repository to STS Git Repository
+commit it local
+create a repository in github
+push to github (by provideing github repository URL)
