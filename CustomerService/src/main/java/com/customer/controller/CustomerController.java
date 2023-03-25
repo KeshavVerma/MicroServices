@@ -28,14 +28,14 @@ public class CustomerController {
 	}
 	
 	@PostMapping("customer")
-	public Customer saveCustomer(@RequestBody TrasactionDTO trasactionDTO ){
+	public TrasactionDTO saveCustomer(@RequestBody TrasactionDTO trasactionDTO ){
 		return customerService.saveCustomer(trasactionDTO);
 		
 	}
 
 	@GetMapping("/test")
 	public String testService() {
-		return restTemplate.getForObject("http://localhost:9091/products/product", String.class);
+		return restTemplate.getForObject("http://PRODUCT-SERVICE/products/product", String.class);
 	}
 
 }
