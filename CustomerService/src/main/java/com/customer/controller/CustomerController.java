@@ -35,7 +35,7 @@ public class CustomerController {
 
 	@GetMapping("/test")
 	public String testService() {
-		return restTemplate.getForObject("http://localhost:9091/products/product", String.class);
+		return restTemplate.getForObject("http://PRODUCT-SERVICE/products/product", String.class);
 	}
 
 }
