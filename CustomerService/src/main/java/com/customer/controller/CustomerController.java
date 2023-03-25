@@ -28,7 +28,7 @@ public class CustomerController {
 	}
 	
 	@PostMapping("customer")
-	public Customer saveCustomer(@RequestBody TrasactionDTO trasactionDTO ){
+	public TrasactionDTO saveCustomer(@RequestBody TrasactionDTO trasactionDTO ){
 		return customerService.saveCustomer(trasactionDTO);
 		
 	}

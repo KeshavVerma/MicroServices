@@ -11,20 +11,21 @@ import com.customer.repositories.CustomerRepository;
 
 @Service
 public class CustomerService {
-	
+
 	@Autowired
 	private CustomerRepository customerRepository;
-	
+
 	@Autowired
 	private RestTemplate restTemplate;
-	
-	public Customer saveCustomer(TrasactionDTO trasactionDTO) {
+
+	public TrasactionDTO saveCustomer(TrasactionDTO trasactionDTO) {
 		
 		Customer customer = trasactionDTO.getCustomer();
 		Product product = trasactionDTO.getProduct();
-		Product productResponse = restTemplate.postForObject("http://localhost:9091/products/product", product, Product.class);
-		System.out.println(productResponse);
-		return customerRepository.save(customer);
+		customer= customerRepository.save(customer);
+		product.setCustomer_id(customer.getId());		
+		Product productResponse = restTemplate.postForObject("http://PRODUCT-SERVICE/products/product", product, Product.class);
+		return new TrasactionDTO(customer,productResponse);
 	}
 
 }
