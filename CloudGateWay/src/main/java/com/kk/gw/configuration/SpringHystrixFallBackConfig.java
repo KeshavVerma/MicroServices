@@ -12,15 +12,15 @@ public class SpringHystrixFallBackConfig {
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(r -> r.path("/customers/**")
-                		.filters(f -> f.circuitBreaker(h -> h.setName("CircuitBreaker")
+                		.filters(f -> f.circuitBreaker(h -> h.setName("Hystrix")
                 				.setFallbackUri("forward:/customerFallBack")))
-                        .uri("lb://CUSTOMER-SERVICE"))
+                        .uri("lb://customer-service"))
                         //.id("employeeModule"))
 
                 .route(r -> r.path("/products/**")
-                		.filters(f -> f.circuitBreaker(h -> h.setName("CircuitBreaker")
+                		.filters(f -> f.circuitBreaker(h -> h.setName("Hystrix")
                 				.setFallbackUri("forward:/productFallBack")))
-                        .uri("lb://PRODUCT-SERVICE"))
+                        .uri("lb://product-service"))
                         //.id("consumerModule"))
                 .build();
     }
