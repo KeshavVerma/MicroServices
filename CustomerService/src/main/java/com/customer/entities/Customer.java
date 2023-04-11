@@ -16,10 +16,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer {
+	
+	public Customer(String fallBackMsg) {
+		super();
+		this.fallBackMsg = fallBackMsg;
+	}
 	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
 	private String address;
+	private String fallBackMsg;
 	
 }
