@@ -9,7 +9,7 @@ public class ApiClientFallback implements ApiClient {
 
 	@Override
 	public Product productResponse(Product product) {
-		return new Product();
+		return new Product("Product Service is Down!");
 	}
 
 }
