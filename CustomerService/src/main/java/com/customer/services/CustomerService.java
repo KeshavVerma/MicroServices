@@ -12,7 +12,10 @@ import com.customer.common.TrasactionDTO;
 import com.customer.entities.Customer;
 import com.customer.repositories.CustomerRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class CustomerService {
 
 	@Autowired
@@ -25,7 +28,7 @@ public class CustomerService {
 	private  ApiClient apiClient;
 
 	public TrasactionDTO saveCustomer(TrasactionDTO trasactionDTO) {
-		
+		log.info("Customer*****************************");
 		Customer customer = trasactionDTO.getCustomer();
 		Product product = trasactionDTO.getProduct();
 		customer= customerRepository.save(customer);
