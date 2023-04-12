@@ -1,0 +1,1 @@
+docker run --name Kouncil_KfkaUI -d -p 9595:8080 -e bootstrapServers="kafka1:9092" -e kouncil.auth.active-provider="inmemory" consdata/kouncil:latest
