@@ -1,5 +1,6 @@
-# run by cmd docker-compose -f keyclokmysql_compose.yml up -d
-
+# run by cmd-> docker-compose -f keyclokmysql_compose.yml up -d
+# Creating admin account to-> add user run below command where f39cd99bc688944e0acb0a23a8fc6410f92d676a45992a8927faac5c5d6c717f is container id
+# docker exec f39cd99bc688944e0acb0a23a8fc6410f92d676a45992a8927faac5c5d6c717f /opt/jboss/keycloak/bin/add-user-keycloak.sh -u admin_user -p admin_password
 services:
 
   mysql-kc:
@@ -27,8 +28,8 @@ services:
     restart: unless-stopped
     environment:
       # User and password for the Administration Console
-      KEYCLOAK_USER: admin_user
-      KEYCLOAK_PASSWORD: admin_password
+      #KEYCLOAK_USER: admin_user
+      #KEYCLOAK_PASSWORD: admin_password
       DB_VENDOR: mysql
       DB_ADDR: mysql-kc
       DB_PORT: 3306
