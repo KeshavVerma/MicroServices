@@ -32,3 +32,39 @@ spring:
             - Path=/products/**
           filters:
             #- StripPrefix=1
+            
+## API SECURITY WITH KEYCLOAK PROVIDER
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            authorization-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/auth
+            issuer-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}
+            jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
+            token-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/token
+            user-info-authentication-method: header
+            user-info-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username
+        registration:
+          Customer_Product:
+            authorization-grant-type: authorization_code
+            client-id: ${app.config.keycloak.client-id}
+            client-secret: ${app.config.keycloak.client-secret}
+            provider: keycloak
+            redirect-uri: http://localhost:8181/login/oauth2/code/keycloak
+            scope: openid
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs        
+          
+## SECURITY BASED CONFIGURATIONS
+app:
+  config:
+    keycloak:
+      url: http://localhost:8181/auth
+      realm: Customer_Product
+      client-secret: u8aYWmYgg5LNO3A71LMGqT3Z86vCiQir
+      client-id: Customer_Product   
+      
+
