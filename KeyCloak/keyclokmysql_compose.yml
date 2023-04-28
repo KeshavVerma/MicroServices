@@ -1,6 +1,6 @@
 # run by cmd-> docker-compose -f keyclokmysql_compose.yml up -d
-# Creating admin account to-> add user run below command where f39cd99bc688944e0acb0a23a8fc6410f92d676a45992a8927faac5c5d6c717f is container id
-# docker exec f39cd99bc688944e0acb0a23a8fc6410f92d676a45992a8927faac5c5d6c717f /opt/jboss/keycloak/bin/add-user-keycloak.sh -u admin_user -p admin_password
+# Creating admin account to-> add user run below command where 9764aeddaacc6b02af44ac767666b826d3a4c76a838d2f95bbd705cbfb2d9b8c is container id
+# docker exec 9764aeddaacc6b02af44ac767666b826d3a4c76a838d2f95bbd705cbfb2d9b8c /opt/jboss/keycloak/bin/add-user-keycloak.sh -u admin_user -p admin_password
 services:
 
   mysql-kc:

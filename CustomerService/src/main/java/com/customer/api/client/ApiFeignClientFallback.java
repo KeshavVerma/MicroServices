@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import com.customer.common.Product;
 
 @Component
-public class ApiClientFallback implements ApiClient {
+public class ApiFeignClientFallback implements ApiFeignClient {
 
 	@Override
 	public Product productResponse(Product product) {

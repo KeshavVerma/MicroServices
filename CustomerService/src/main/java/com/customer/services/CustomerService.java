@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
-import com.customer.api.client.ApiClient;
+import com.customer.api.client.ApiFeignClient;
 import com.customer.common.Product;
 import com.customer.common.TrasactionDTO;
 import com.customer.entities.Customer;
@@ -25,7 +25,7 @@ public class CustomerService {
 	private RestTemplate restTemplate;
 	
 	@Autowired
-	private  ApiClient apiClient;
+	private  ApiFeignClient apiClient;
 
 	public TrasactionDTO saveCustomer(TrasactionDTO trasactionDTO) {
 		log.info("Customer*****************************");

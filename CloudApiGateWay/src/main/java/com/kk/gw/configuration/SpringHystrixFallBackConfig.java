@@ -11,12 +11,14 @@ public class SpringHystrixFallBackConfig {
 	@Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
+        		//parent Service
                 .route(r -> r.path("/customers/**")
                 		.filters(f -> f.circuitBreaker(h -> h.setName("Hystrix")
                 				.setFallbackUri("forward:/customerFallBack")))
                         .uri("lb://CUSTOMER-SERVICE"))
                         //.id("employeeModule"))
                 
+                //child service call fall back not working
                 .route(r -> r.path("/products/**")
                 		.filters(f -> f.circuitBreaker(h -> h.setName("Hystrix")
                 				.setFallbackUri("forward:/productFallBack")))
